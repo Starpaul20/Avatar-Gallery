@@ -400,6 +400,8 @@ function avatargallery_admin_user()
   	global $db, $mybb, $lang, $page;
 	$lang->load("user_avatar_gallery");
 
+	echo "<script type=\"text/javascript\">\n function submitUserForm() { $('#tab_overview').closest('FORM').submit(); }</script>\n";
+
 	if($mybb->input['action'] == "avatar_gallery")
 	{
 		$user = get_user($mybb->input['uid']);
@@ -443,9 +445,10 @@ function avatargallery_admin_user()
 		echo "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n";
 		echo "<head profile=\"http://gmpg.org/xfn/1\">\n";
 		echo "	<title>{$lang->avatar_gallery}</title>\n";
-		echo "	<link rel=\"stylesheet\" href=\"styles/".$page->style."/main.css\" type=\"text/css\" />\n";
+		echo "	<link rel=\"stylesheet\" href=\"styles/".$page->style."/main.css?ver=1804\" type=\"text/css\" />\n";
 		echo "	<link rel=\"stylesheet\" href=\"styles/".$page->style."/avatar_gallery.css\" type=\"text/css\" />\n";
-		echo "	<script type=\"text/javascript\" src=\"../jscripts/prototype.js\"></script>\n";
+		echo "	<script type=\"text/javascript\" src=\"../jscripts/jquery.js\"></script>\n";
+		echo "	<script type=\"text/javascript\" src=\"../jscripts/jquery.plugins.min.js\"></script>\n";
 		echo "	<script type=\"text/javascript\" src=\"../jscripts/general.js\"></script>\n";
 		echo "</head>\n";
 		echo "<body id=\"avatar_gallery\">\n";
