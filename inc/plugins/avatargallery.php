@@ -45,7 +45,7 @@ function avatargallery_info()
 		"website"			=> "http://galaxiesrealm.com/index.php",
 		"author"			=> "Starpaul20",
 		"authorsite"		=> "http://galaxiesrealm.com/index.php",
-		"version"			=> "1.0",
+		"version"			=> "1.1",
 		"codename"			=> "avatargallery",
 		"compatibility"		=> "18*"
 	);
@@ -379,7 +379,7 @@ function avatargallery_admin_action_handler($actions)
 
 function avatargallery_admin_permissions($admin_permissions)
 {
-	global $db, $mybb, $lang;
+	global $lang;
 	$lang->load("user_avatar_gallery");
 
 	$admin_permissions['avatar_gallery'] = $lang->can_manage_avatar_gallery;

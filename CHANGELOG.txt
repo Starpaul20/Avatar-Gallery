@@ -1,2 +1,11 @@
+1.1 (April 7th, 2015)
+- Bug: Fixed white box after editing user's avatar in Admin CP (Issue #1)
+- Bug: Fixed "Specify Custom Avatar" appearing on all tabs (Issue #2)
+- Renamed avatar gallery table when editing user
+- Using get_input
+- Moved hardcoded HTML to template
+- Changed setting display order
+- Supressed PHP warnings in avatar gallery Admin CP functions
+
 1.0 (August 31st, 2014)
 - Initial release
