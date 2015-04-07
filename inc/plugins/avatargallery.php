@@ -206,7 +206,7 @@ function avatargallery_deactivate()
 // User CP gallery page
 function avatargallery_usercp()
 {
-  	global $db, $mybb, $templates, $theme, $lang, $avatargallery, $galleries, $gobutton, $gallerylist, $headerinclude, $header, $usercpnav, $footer, $avatar_error;
+	global $db, $mybb, $templates, $theme, $lang, $avatargallery, $galleries, $gobutton, $gallerylist, $headerinclude, $header, $usercpnav, $footer, $avatar_error;
 	$lang->load("avatargallery");
 
 	// Get a listing of available galleries
@@ -304,7 +304,7 @@ function avatargallery_usercp()
 // User CP submit page
 function avatargallery_usercp_submit()
 {
-  	global $db, $mybb, $lang, $plugins;
+	global $db, $mybb, $lang, $plugins;
 	$lang->load("avatargallery");
 
 	if(!empty($mybb->get_input('gallery'))) // Gallery avatar
@@ -379,7 +379,7 @@ function avatargallery_admin_action_handler($actions)
 
 function avatargallery_admin_permissions($admin_permissions)
 {
-  	global $db, $mybb, $lang;
+	global $db, $mybb, $lang;
 	$lang->load("user_avatar_gallery");
 
 	$admin_permissions['avatar_gallery'] = $lang->can_manage_avatar_gallery;
@@ -390,7 +390,7 @@ function avatargallery_admin_permissions($admin_permissions)
 // Admin CP editing user avatar
 function avatargallery_admin_gallery_user()
 {
-	global $mybb, $lang, $user, $form_container, $run_module;
+	global $lang, $user, $form_container, $run_module;
 	$lang->load("user_avatar_gallery");
 
 	if($run_module == 'user' && !empty($form_container->_title) && !empty($lang->specify_custom_avatar) && $form_container->_title == $lang->specify_custom_avatar)
@@ -406,7 +406,7 @@ function avatargallery_admin_gallery_user()
 // Avatar Gallery when editing user
 function avatargallery_admin_user()
 {
-  	global $db, $mybb, $lang, $page;
+	global $db, $mybb, $lang, $page;
 	$lang->load("user_avatar_gallery");
 
 	echo "<script type=\"text/javascript\">\n function submitUserForm() { $('#tab_overview').closest('FORM').submit(); }</script>\n";
@@ -617,7 +617,7 @@ function avatargallery_admin_user()
 // Admin Log display
 function avatargallery_admin_adminlog($plugin_array)
 {
-  	global $lang;
+	global $lang;
 	$lang->load("user_avatar_gallery");
 
 	if($plugin_array['lang_string'] == admin_log_user_avatar_gallery_add_avatar)
@@ -650,7 +650,7 @@ function avatargallery_admin_adminlog($plugin_array)
 // Check to see if CHMOD for avatar galleries is writable
 function avatargallery_chmod()
 {
-  	global $lang, $table, $avatar_themes;
+	global $lang, $table, $avatar_themes;
 	$lang->load("user_avatar_gallery");
 
 	if(is_writable(MYBB_ROOT.'/images/avatars/'))
