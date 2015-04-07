@@ -66,7 +66,7 @@ function avatargallery_activate()
 		'description' => 'The directory where your avatars are stored. These are used in the avatar list in the User CP.',
 		'optionscode' => 'text',
 		'value' => 'images/avatars',
-		'disporder' => 29,
+		'disporder' => 25,
 		'gid' => (int)$gid
 	);
 	$db->insert_query("settings", $insertarray);
