@@ -383,13 +383,12 @@ function avatargallery_admin_gallery_user()
 	global $mybb, $lang, $user, $form_container, $run_module;
 	$lang->load("user_avatar_gallery");
 
-	if($run_module == 'user' && !empty($form_container->_title) & !empty($lang->specify_custom_avatar) & $form_container->_title == $lang->specify_custom_avatar)
+	if($run_module == 'user' && !empty($form_container->_title) && !empty($lang->specify_custom_avatar) && $form_container->_title == $lang->specify_custom_avatar)
 	{
 		// Select an image from the gallery
 		echo "<div class=\"border_wrapper\">";
 		echo "<div class=\"title\">.. {$lang->or_select_avatar_gallery}</div>";
 		echo "<iframe src=\"index.php?module=user-users&amp;action=avatar_gallery&amp;uid={$user['uid']}\" width=\"100%\" height=\"350\" frameborder=\"0\"></iframe>";
-		echo "</div>";
 		echo "</div>";
 	}
 }
