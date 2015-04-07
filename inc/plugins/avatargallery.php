@@ -175,7 +175,7 @@ function avatargallery_activate()
 
 	$insert_array = array(
 		'title'		=> 'usercp_avatar_gallery_option_bit',
-'template'	=> $db->escape_string('<option value="{$dir}" {$selected}>{$friendlyname}</option>'),
+		'template'	=> $db->escape_string('<option value="{$dir}" {$selected}>{$friendlyname}</option>'),
 		'sid'		=> '-1',
 		'version'	=> '',
 		'dateline'	=> TIME_NOW

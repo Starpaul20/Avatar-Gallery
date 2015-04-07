@@ -53,7 +53,7 @@ if($mybb->input['action'] == "add_gallery")
 
 		if(!$errors)
 		{
-			mkdir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']);
+			@mkdir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']);
 
 			// Log admin action
 			log_admin_action($mybb->input['name']);
@@ -112,7 +112,7 @@ if($mybb->input['action'] == "edit_gallery")
 
 		if(!$errors)
 		{
-			rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']);
+			@rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']);
 
 			$oldavatar = $mybb->settings['avatardir']."/".$mybb->input['gallery'];
 
@@ -199,7 +199,7 @@ if($mybb->input['action'] == "delete_gallery")
 		}
 		@closedir($avatars);
 
-		rmdir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']);
+		@rmdir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']);
 
 		$avatar = $mybb->settings['avatardir']."/".$mybb->input['gallery'];
 
@@ -385,7 +385,7 @@ if($mybb->input['action'] == "edit_avatar")
 		{
 			if($mybb->input['name'])
 			{
-				rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']."/".$mybb->input['avatarname'].".".$ext);
+				@rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['name']."/".$mybb->input['avatarname'].".".$ext);
 
 				if($mybb->input['gallery'])
 				{
@@ -400,14 +400,14 @@ if($mybb->input['action'] == "edit_avatar")
 			}
 			elseif($mybb->input['gallery'] && !$mybb->input['name'])
 			{
-				rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatarname'].".".$ext);
+				@rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatarname'].".".$ext);
 
 				$oldavatar = $mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar'];
 				$newavatar = $mybb->settings['avatardir']."/".$mybb->input['avatarname'].".".$ext."?dateline=".TIME_NOW;
 			}
 			else
 			{
-				rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatarname'].".".$ext);
+				@rename(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatar'], MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['avatarname'].".".$ext);
 
 				if($mybb->input['gallery'])
 				{
