@@ -6,7 +6,7 @@
 
 // User editing
 $l['user_current_using_gallery_avatar'] = "This user is currently using an avatar from the avatar gallery.";
-$l['or_select_avatar_gallery'] = "or select from Avatar Gallery";
+$l['select_avatar_gallery'] = "Select from Avatar Gallery";
 
 // CHMOD list
 $l['avatar_gallery_directory'] = "Avatar Gallery Directory";
