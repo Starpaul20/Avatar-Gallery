@@ -39,7 +39,7 @@ if($mybb->input['action'] == "add_gallery")
 {
 	if($mybb->request_method == "post")
 	{
-		$mybb->input['name'] = htmlspecialchars_uni($mybb->input['name']);
+		$mybb->input['name'] = htmlspecialchars_uni($mybb->get_input('name'));
 
 		if(!trim($mybb->input['name']))
 		{
@@ -88,7 +88,7 @@ if($mybb->input['action'] == "add_gallery")
 
 if($mybb->input['action'] == "edit_gallery")
 {
-	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->input['gallery']);
+	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
 
 	if(!is_dir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']))
 	{
@@ -173,7 +173,7 @@ if($mybb->input['action'] == "edit_gallery")
 
 if($mybb->input['action'] == "delete_gallery")
 {
-	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->input['gallery']);
+	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
 
 	if(!is_dir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']))
 	{
@@ -229,7 +229,7 @@ if($mybb->input['action'] == "delete_gallery")
 
 if($mybb->input['action'] == "add_avatar")
 {
-	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->input['gallery']);
+	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
 
 	if($mybb->request_method == "post")
 	{
@@ -345,8 +345,8 @@ if($mybb->input['action'] == "add_avatar")
 
 if($mybb->input['action'] == "edit_avatar")
 {
-	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->input['gallery']);
-	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->input['avatar']);
+	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
+	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->get_input('avatar'));
 
 	if(!is_file(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar']))
 	{
@@ -507,8 +507,8 @@ if($mybb->input['action'] == "edit_avatar")
 
 if($mybb->input['action'] == "delete_avatar")
 {
-	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->input['gallery']);
-	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->input['avatar']);
+	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
+	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->get_input('avatar'));
 
 	if(!is_file(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar']))
 	{
@@ -563,7 +563,7 @@ if($mybb->input['action'] == "delete_avatar")
 
 if($mybb->input['gallery'])
 {
-	$directory = htmlspecialchars_uni($mybb->input['gallery']);
+	$directory = htmlspecialchars_uni($mybb->get_input('gallery'));
 	if(!is_dir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$directory))
 	{
 		flash_message($lang->error_invalid_gallery, 'error');

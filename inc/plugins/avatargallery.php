@@ -297,18 +297,18 @@ function avatargallery_usercp_submit()
   	global $db, $mybb, $lang, $plugins;
 	$lang->load("avatargallery");
 
-	if(!empty($mybb->input['gallery'])) // Gallery avatar
+	if(!empty($mybb->get_input('gallery'))) // Gallery avatar
 	{
 		require_once MYBB_ROOT."inc/functions_upload.php";
 		$avatar_error = "";
 
-		if(empty($mybb->input['avatar']))
+		if(empty($mybb->get_input('avatar')))
 		{
 			$avatar_error = $lang->error_noavatar;
 		}
 
-		$mybb->input['gallery'] = str_replace(array("./", ".."), "", $mybb->input['gallery']);
-		$mybb->input['avatar'] = str_replace(array("./", ".."), "", $mybb->input['avatar']);
+		$mybb->input['gallery'] = str_replace(array("./", ".."), "", $mybb->get_input('gallery'));
+		$mybb->input['avatar'] = str_replace(array("./", ".."), "", $mybb->get_input('avatar'));
 
 		if(empty($avatar_error))
 		{
@@ -403,22 +403,23 @@ function avatargallery_admin_user()
 
 	if($mybb->input['action'] == "avatar_gallery")
 	{
-		$user = get_user($mybb->input['uid']);
+		$uid = $mybb->get_input('uid', MyBB::INPUT_INT);
+		$user = get_user($uid);
 		if(!$user['uid'])
 		{
 			exit;
 		}
 
 		// We've selected a new avatar for this user!
-		if($mybb->input['avatar'])
+		if($mybb->get_input('avatar'))
 		{
-			if(!verify_post_check($mybb->input['my_post_key']))
+			if(!verify_post_check($mybb->get_input('my_post_key')))
 			{
 				echo $lang->invalid_post_verify_key2;
 				exit;
 			}
 
-			$mybb->input['avatar'] = str_replace(array("./", ".."), "", $mybb->input['avatar']);
+			$mybb->input['avatar'] = str_replace(array("./", ".."), "", $mybb->get_input('avatar'));
 
 			if(file_exists("../".$mybb->settings['avatardir']."/".$mybb->input['avatar']))
 			{
@@ -453,7 +454,7 @@ function avatargallery_admin_user()
 		echo "<body id=\"avatar_gallery\">\n";
 
 		// Sanitize incoming path if we have one
-		$gallery = str_replace(array("..", "\x0"), "", $mybb->input['gallery']);
+		$gallery = str_replace(array("..", "\x0"), "", $mybb->get_input('gallery'));
 
 		$breadcrumb = "<a href=\"index.php?module=user-users&amp;action=avatar_gallery&amp;uid={$user['uid']}\">Default Gallery</a>";
 
