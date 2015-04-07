@@ -173,6 +173,15 @@ function avatargallery_activate()
 	);
 	$db->insert_query("templates", $insert_array);
 
+	$insert_array = array(
+		'title'		=> 'usercp_avatar_gallery_option_bit',
+'template'	=> $db->escape_string('<option value="{$dir}" {$selected}>{$friendlyname}</option>'),
+		'sid'		=> '-1',
+		'version'	=> '',
+		'dateline'	=> TIME_NOW
+	);
+	$db->insert_query("templates", $insert_array);
+
 	// Update templates
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}')."#i", '{$avatargallery}<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}');
@@ -185,7 +194,7 @@ function avatargallery_deactivate()
 {
 	global $db;
 	$db->delete_query("settings", "name IN('avatardir')");
-	$db->delete_query("templates", "title IN('usercp_avatar_gallery','usercp_avatar_gallery_avatar','usercp_avatar_gallery_option')");
+	$db->delete_query("templates", "title IN('usercp_avatar_gallery','usercp_avatar_gallery_avatar','usercp_avatar_gallery_option','usercp_avatar_gallery_option_bit')");
 	rebuild_settings();
 
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
@@ -221,7 +230,8 @@ function avatargallery_usercp()
 			$activegallery = $friendlyname;
 			$selected = "selected=\"selected\"";
 		}
-		$galleries .= "<option value=\"$dir\" $selected>$friendlyname</option>\n";
+
+		eval("\$galleries .= \"".$templates->get("usercp_avatar_gallery_option_bit")."\";");
 		$selected = "";
 	}
 
