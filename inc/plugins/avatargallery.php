@@ -307,12 +307,12 @@ function avatargallery_usercp_submit()
 	global $db, $mybb, $lang, $plugins;
 	$lang->load("avatargallery");
 
-	if(!empty($mybb->get_input('gallery'))) // Gallery avatar
+	if(!empty($mybb->input['gallery'])) // Gallery avatar
 	{
 		require_once MYBB_ROOT."inc/functions_upload.php";
 		$avatar_error = "";
 
-		if(empty($mybb->get_input('avatar')))
+		if(empty($mybb->input['avatar']))
 		{
 			$avatar_error = $lang->error_noavatar;
 		}
