@@ -30,6 +30,7 @@ $plugins->add_hook("admin_user_action_handler", "avatargallery_admin_action_hand
 $plugins->add_hook("admin_user_permissions", "avatargallery_admin_permissions");
 $plugins->add_hook("admin_formcontainer_end", "avatargallery_admin_gallery_user");
 $plugins->add_hook("admin_user_users_begin", "avatargallery_admin_user");
+$plugins->add_hook("admin_user_users_edit_graph", "avatargallery_admin_user_javascript");
 $plugins->add_hook("admin_tools_get_admin_log_action", "avatargallery_admin_adminlog");
 $plugins->add_hook("admin_tools_system_health_output_chmod_list", "avatargallery_chmod");
 
@@ -409,8 +410,6 @@ function avatargallery_admin_user()
 	global $db, $mybb, $lang, $page;
 	$lang->load("user_avatar_gallery");
 
-	echo "<script type=\"text/javascript\">\n function submitUserForm() { $('#tab_overview').closest('FORM').submit(); }</script>\n";
-
 	if($mybb->input['action'] == "avatar_gallery")
 	{
 		$uid = $mybb->get_input('uid', MyBB::INPUT_INT);
@@ -612,6 +611,12 @@ function avatargallery_admin_user()
 		echo "</html>";
 		exit;
 	}
+}
+
+// Avatar gallery user submit form javascript
+function avatargallery_admin_user_javascript()
+{
+	echo "<script type=\"text/javascript\">\n function submitUserForm() { $('#tab_overview').closest('FORM').submit(); }</script>\n";
 }
 
 // Admin Log display
