@@ -16,5 +16,3 @@ $l['local_galleries'] = "Local Avatar Galleries";
 $l['gallery'] = "Gallery:";
 $l['change_avatar'] = "Change Avatar";
 $l['local_galleries'] = "Local Avatar Galleries";
-
-?>

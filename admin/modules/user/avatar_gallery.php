@@ -718,5 +718,3 @@ if(!$mybb->input['action'])
 	$table->output($lang->avatar_gallery);
 	$page->output_footer();
 }
-
-?>

@@ -673,5 +673,3 @@ function avatargallery_chmod()
 	$table->construct_cell($avatar_themes);
 	$table->construct_row();
 }
-
-?>

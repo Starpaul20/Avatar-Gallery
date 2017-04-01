@@ -75,5 +75,3 @@ $l['admin_log_user_avatar_gallery_delete_avatar_default'] = "Deleted avatar {1} 
 $l['admin_log_user_avatar_gallery_add_gallery'] = "Added avatar gallery {1}";
 $l['admin_log_user_avatar_gallery_edit_gallery'] = "Edited avatar gallery {1}";
 $l['admin_log_user_avatar_gallery_delete_gallery'] = "Deleted avatar gallery {1}";
-
-?>
