@@ -366,6 +366,7 @@ function avatargallery_usercp_submit()
 		else
 		{
 			$lang->error_invalidavatarurl = $lang->error_noavatar;
+			$lang->error_remote_avatar_not_allowed = $lang->error_noavatar;
 			$avatar_error = inline_error($avatar_error);
 			$mybb->input['action'] = "avatar";
 		}
