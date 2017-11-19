@@ -186,6 +186,11 @@ function avatargallery_activate()
 	// Update templates
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}')."#i", '{$avatargallery}<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}');
+	find_replace_templatesets("usercp_avatar", "#".preg_quote('<form enctype="multipart/form-data" action="usercp.php" method="post">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />')."#i", '');
+	find_replace_templatesets("usercp_avatar", "#".preg_quote('{$avatarupload}')."#i", '<form enctype="multipart/form-data" action="usercp.php" method="post">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+{$avatarupload}');
 
 	change_admin_permission('user', 'avatar_gallery');
 }
@@ -200,6 +205,13 @@ function avatargallery_deactivate()
 
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('{$avatargallery}')."#i", '', 0);
+	find_replace_templatesets("usercp_avatar", "#".preg_quote('{$header}
+')."#i", '{$header}
+<form enctype="multipart/form-data" action="usercp.php" method="post">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />', 0);
+	find_replace_templatesets("usercp_avatar", "#".preg_quote('<form enctype="multipart/form-data" action="usercp.php" method="post">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+{$avatarupload}')."#i", '{$avatarupload}', 0);
 
 	change_admin_permission('user', 'avatar_gallery', -1);
 }
