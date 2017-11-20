@@ -1,3 +1,14 @@
+1.2 (November 20th, 2017)
+- Fixed large text issue when editing user
+- Removed PHP closing tags
+- Use THIS_SCRIPT for template caching
+- Optimized images
+- Bug: Fixed error message when viewing gallery (Issue #4)
+- Updated error message
+- Fixed error message when remote avatars are disabled
+- Changed redirect location
+- Indented templates
+
 1.1.1 (April 8th, 2015)
 - Bug: Fixed blank pages on older PHP versions (Issue #3)
 
