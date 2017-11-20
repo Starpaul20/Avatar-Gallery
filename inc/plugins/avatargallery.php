@@ -361,7 +361,7 @@ function avatargallery_usercp_submit()
 		if(empty($avatar_error))
 		{
 			$plugins->run_hooks("usercp_do_avatar_end");
-			redirect("usercp.php", $lang->redirect_avatarupdated);
+			redirect("usercp.php?action=avatar", $lang->redirect_avatarupdated);
 		}
 		else
 		{
