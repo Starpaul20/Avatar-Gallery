@@ -85,51 +85,51 @@ function avatargallery_activate()
 <body>
 {$header}
 <table width="100%" border="0" align="center">
-<tr>
-{$usercpnav}
-<td valign="top">
-{$avatar_error}
-<table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
-<tr>
-<td class="thead"><strong>{$lang->change_avatar}</strong></td>
-</tr>
-<tr>
-<td class="tcat"><strong>{$lang->local_galleries}</strong></td>
-</tr>
-<tr>
-<td class="trow1" align="center">
-<form method="post" action="usercp.php">
-<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
-<input type="hidden" name="action" value="avatar" />
-<select name="gallery">
-{$galleries}
-</select>
-&nbsp;{$gobutton}
-</form>
-</td>
-</tr>
-<tr>
-<td class="tcat"><strong>{$lang->avatars_in_gallery}</strong></td>
-</tr>
-<tr>
-<td class="trow2">
-<form method="post" action="usercp.php">
-<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
-<input type="hidden" name="action" value="do_avatar" />
-<input type="hidden" name="gallery" value="{$gallery}" />
-<table width="100%" cellpadding="4">
-{$avatarlist}
-</table>
-</td>
-</tr>
-</table>
-<br />
-<div align="center">
-<input type="hidden" name="action" value="do_avatar" />
-<input type="submit" class="button" name="submit" value="{$lang->change_avatar}" />
-</div>
-</td>
-</tr>
+	<tr>
+		{$usercpnav}
+		<td valign="top">
+			{$avatar_error}
+			<table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
+				<tr>
+					<td class="thead"><strong>{$lang->change_avatar}</strong></td>
+				</tr>
+				<tr>
+					<td class="tcat"><strong>{$lang->local_galleries}</strong></td>
+				</tr>
+				<tr>
+					<td class="trow1" align="center">
+						<form method="post" action="usercp.php">
+							<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+							<input type="hidden" name="action" value="avatar" />
+								<select name="gallery">
+									{$galleries}
+								</select>
+							&nbsp;{$gobutton}
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td class="tcat"><strong>{$lang->avatars_in_gallery}</strong></td>
+				</tr>
+				<tr>
+					<td class="trow2">
+						<form method="post" action="usercp.php">
+						<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+						<input type="hidden" name="action" value="do_avatar" />
+						<input type="hidden" name="gallery" value="{$gallery}" />
+						<table width="100%" cellpadding="4">
+							{$avatarlist}
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<div align="center">
+				<input type="hidden" name="action" value="do_avatar" />
+				<input type="submit" class="button" name="submit" value="{$lang->change_avatar}" />
+			</div>
+		</td>
+	</tr>
 </table>
 </form>
 {$footer}
@@ -153,20 +153,20 @@ function avatargallery_activate()
 	$insert_array = array(
 		'title'		=> 'usercp_avatar_gallery_option',
 		'template'	=> $db->escape_string('<tr>
-<td class="tcat" colspan="2"><strong>{$lang->local_galleries}</strong></td>
+	<td class="tcat" colspan="2"><strong>{$lang->local_galleries}</strong></td>
 </tr>
 <tr>
-<td class="trow2"><strong>{$lang->gallery}</strong></td>
-<td class="trow2">
-<form method="post" action="usercp.php">
-<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
-<input type="hidden" name="action" value="avatar" />
-<select name="gallery">
-{$galleries}
-</select>
-&nbsp;{$gobutton}
-</form>
-</td>
+	<td class="trow2"><strong>{$lang->gallery}</strong></td>
+	<td class="trow2">
+		<form method="post" action="usercp.php">
+			<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+			<input type="hidden" name="action" value="avatar" />
+			<select name="gallery">
+			{$galleries}
+			</select>
+			&nbsp;{$gobutton}
+		</form>
+	</td>
 </tr>'),
 		'sid'		=> '-1',
 		'version'	=> '',
