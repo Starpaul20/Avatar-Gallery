@@ -638,27 +638,27 @@ function avatargallery_admin_adminlog($plugin_array)
 	global $lang;
 	$lang->load("user_avatar_gallery");
 
-	if($plugin_array['lang_string'] == admin_log_user_avatar_gallery_add_avatar)
+	if($plugin_array['lang_string'] == 'admin_log_user_avatar_gallery_add_avatar')
 	{
 		if(!$plugin_array['logitem']['data'][1])
 		{
-			$plugin_array['lang_string'] = admin_log_user_avatar_gallery_add_avatar_default;
+			$plugin_array['lang_string'] = 'admin_log_user_avatar_gallery_add_avatar_default';
 		}
 	}
 
-	elseif($plugin_array['lang_string'] == admin_log_user_avatar_gallery_edit_avatar)
+	elseif($plugin_array['lang_string'] == 'admin_log_user_avatar_gallery_edit_avatar')
 	{
 		if(!$plugin_array['logitem']['data'][1])
 		{
-			$plugin_array['lang_string'] = admin_log_user_avatar_gallery_edit_avatar_default;
+			$plugin_array['lang_string'] = 'admin_log_user_avatar_gallery_edit_avatar_default';
 		}
 	}
 
-	elseif($plugin_array['lang_string'] == admin_log_user_avatar_gallery_delete_avatar)
+	elseif($plugin_array['lang_string'] == 'admin_log_user_avatar_gallery_delete_avatar')
 	{
 		if(!$plugin_array['logitem']['data'][1])
 		{
-			$plugin_array['lang_string'] = admin_log_user_avatar_gallery_delete_avatar_default;
+			$plugin_array['lang_string'] = 'admin_log_user_avatar_gallery_delete_avatar_default';
 		}
 	}
 
