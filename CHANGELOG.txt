@@ -1,3 +1,6 @@
+1.2.1 (March 9th, 2019)
+- Bug: Fixed PHP 7.2 does not cast unquoted string literals to strings (Issue #5)
+
 1.2 (November 20th, 2017)
 - Fixed large text issue when editing user
 - Removed PHP closing tags
