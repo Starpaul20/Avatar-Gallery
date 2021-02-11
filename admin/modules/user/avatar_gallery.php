@@ -12,6 +12,11 @@ if(!defined("IN_MYBB"))
 
 require_once MYBB_ROOT."inc/functions_upload.php";
 
+if(!$mybb->settings['avatardir'])
+{
+	$mybb->settings['avatardir'] = 'images/avatars';
+}
+
 $page->add_breadcrumb_item($lang->avatar_gallery, "index.php?module=user-avatar_gallery");
 
 if($mybb->input['action'] == "add_gallery" || $mybb->input['action'] == "add_avatar" || !$mybb->input['action'])
@@ -239,7 +244,7 @@ if($mybb->input['action'] == "add_avatar")
 		}
 
 		$ext = get_extension(my_strtolower($_FILES['avatarfile']['name']));
-		if(!preg_match("#^(gif|jpg|jpeg|jpe|bmp|png)$#i", $ext)) 
+		if(!preg_match("#^(gif|jpg|jpeg|jpe|bmp|png)$#i", $ext))
 		{
 			$errors[] = $lang->error_invalid_extension;
 		}
@@ -347,6 +352,7 @@ if($mybb->input['action'] == "edit_avatar")
 {
 	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
 	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->get_input('avatar'));
+	$ext = get_extension($mybb->input['avatar']);
 
 	if(!is_file(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar']))
 	{
@@ -354,10 +360,14 @@ if($mybb->input['action'] == "edit_avatar")
 		admin_redirect("index.php?module=user-avatar_gallery");
 	}
 
+	if(!preg_match("#^(gif|jpg|jpeg|jpe|bmp|png)$#i", $ext))
+	{
+		flash_message($lang->error_not_avatar, 'error');
+		admin_redirect("index.php?module=user-avatar_gallery");
+	}
+
 	if($mybb->request_method == "post")
 	{
-		$ext = get_extension($mybb->input['avatar']);
-
 		if($mybb->input['name'] != $mybb->input['gallery'])
 		{
 			if(is_file("../".$mybb->settings['avatardir']."/".$mybb->input['name']."/".$mybb->input['avatarname'].".".$ext))
@@ -509,10 +519,17 @@ if($mybb->input['action'] == "delete_avatar")
 {
 	$mybb->input['gallery'] = htmlspecialchars_uni($mybb->get_input('gallery'));
 	$mybb->input['avatar'] = htmlspecialchars_uni($mybb->get_input('avatar'));
+	$ext = get_extension($mybb->input['avatar']);
 
 	if(!is_file(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$mybb->input['gallery']."/".$mybb->input['avatar']))
 	{
 		flash_message($lang->error_invalid_avatar, 'error');
+		admin_redirect("index.php?module=user-avatar_gallery");
+	}
+
+	if(!preg_match("#^(gif|jpg|jpeg|jpe|bmp|png)$#i", $ext))
+	{
+		flash_message($lang->error_not_avatar, 'error');
 		admin_redirect("index.php?module=user-avatar_gallery");
 	}
 

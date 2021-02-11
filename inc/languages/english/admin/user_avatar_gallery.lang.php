@@ -61,6 +61,7 @@ $l['error_invalid_gallery'] = "Invalid gallery specified.";
 $l['error_invalid_avatar'] = "Invalid avatar specified.";
 $l['error_missing_file'] = "The avatar file is missing.";
 $l['error_invalid_extension'] = "Invalid avatar extension. Please upload only JPG, GIF, PNG or BMP images.";
+$l['error_not_avatar'] = "The file selected is not an avatar. Please only select JPG, GIF, PNG or BMP image files.";
 $l['error_avatar_exists'] = "The specified avatar already exists in this location.";
 $l['error_gallery_does_not_exist'] = "The specified gallery does not exist.";
 $l['error_uploadfailed'] = "File upload failed.";
