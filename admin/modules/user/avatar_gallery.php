@@ -582,6 +582,7 @@ if($mybb->input['gallery'])
 	$table->construct_header($lang->file_size, array("class" => "align_center", 'width' => '10%'));
 	$table->construct_header($lang->controls, array('class' => "align_center", 'width' => '15%', 'colspan' => 2));
 
+	$avatar = array();
 	$avatars = @opendir(MYBB_ROOT."/".$mybb->settings['avatardir']."/".$directory);
 	while($file = @readdir($avatars))
 	{
@@ -596,7 +597,7 @@ if($mybb->input['gallery'])
 	}
 	@closedir($avatars);
 
-	if(count($avatar) == 0)
+	if(is_array($avatar) && count($avatar) == 0)
 	{
 		$table->construct_cell($lang->no_avatars_gallery, array("colspan" => "6"));
 		$table->construct_row();
@@ -652,6 +653,7 @@ if(!$mybb->input['action'])
 	$table->construct_header($lang->file_size, array("class" => "align_center", 'width' => '10%'));
 	$table->construct_header($lang->controls, array('class' => "align_center", 'width' => '15%', 'colspan' => 2));
 
+	$avatar = array();
 	$avatars = @opendir(MYBB_ROOT."/".$mybb->settings['avatardir']."/");
 	while($file = @readdir($avatars))
 	{
@@ -662,7 +664,7 @@ if(!$mybb->input['action'])
 	}
 	@closedir($avatars);
 
-	if(count($avatar) == 0)
+	if(is_array($avatar) && count($avatar) == 0)
 	{
 		$table->construct_cell($lang->no_avatars, array("colspan" => "6"));
 		$table->construct_row();
