@@ -1,3 +1,8 @@
+1.3 (February 12th, 2021)
+- Bug: Fixed counting of non-countable objects error (Issue #7)
+- Forbid file editing/deleting if not image file
+- Added fallback for setting if blank/missing
+
 1.2.1 (March 9th, 2019)
 - Bug: Fixed PHP 7.2 does not cast unquoted string literals to strings (Issue #5)
 
