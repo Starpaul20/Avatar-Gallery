@@ -184,7 +184,7 @@ function avatargallery_activate()
 	$db->insert_query("templates", $insert_array);
 
 	// Update templates
-	include MYBB_ROOT."/inc/adminfunctions_templates.php";
+	require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}')."#i", '{$avatargallery}<td class="tcat" colspan="2"><strong>{$lang->custom_avatar}');
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('<form enctype="multipart/form-data" action="usercp.php" method="post">
 <input type="hidden" name="my_post_key" value="{$mybb->post_code}" />')."#i", '');
@@ -203,7 +203,7 @@ function avatargallery_deactivate()
 	$db->delete_query("templates", "title IN('usercp_avatar_gallery','usercp_avatar_gallery_avatar','usercp_avatar_gallery_option','usercp_avatar_gallery_option_bit')");
 	rebuild_settings();
 
-	include MYBB_ROOT."/inc/adminfunctions_templates.php";
+	require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('{$avatargallery}')."#i", '', 0);
 	find_replace_templatesets("usercp_avatar", "#".preg_quote('{$header}
 ')."#i", '{$header}
