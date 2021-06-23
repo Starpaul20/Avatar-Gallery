@@ -238,7 +238,7 @@ function avatargallery_usercp()
 	@closedir($avatardir);
 	natcasesort($gallerylist);
 	reset($gallerylist);
-	$galleries = '';
+	$galleries = $selected = '';
 	foreach($gallerylist as $dir => $friendlyname)
 	{
 		if($dir == $mybb->get_input('gallery'))
@@ -248,7 +248,7 @@ function avatargallery_usercp()
 		}
 
 		eval("\$galleries .= \"".$templates->get("usercp_avatar_gallery_option_bit")."\";");
-		$selected = "";
+		$selected = '';
 	}
 
 	eval("\$avatargallery = \"".$templates->get("usercp_avatar_gallery_option")."\";");
@@ -498,6 +498,7 @@ function avatargallery_admin_user()
 			if(is_dir($real_path))
 			{
 				// Build friendly gallery breadcrumb
+				$breadcrumb_url = '';
 				$gallery_path = explode("/", $gallery);
 				foreach($gallery_path as $key => $url_bit)
 				{
@@ -506,7 +507,7 @@ function avatargallery_admin_user()
 					$gallery_name = str_replace(array("_", "%20"), " ", $url_bit);
 					$gallery_name = ucwords($gallery_name);
 
-					if($gallery_path[$key+1])
+					if(isset($gallery_path[$key+1]))
 					{
 						$breadcrumb .= " &raquo; <a href=\"index.php?module=user-users&amp;action=avatar_gallery&amp;uid={$user['uid']}&amp;gallery={$breadcrumb_url}\">{$gallery_name}</a>";
 					}
@@ -592,7 +593,7 @@ function avatargallery_admin_user()
 		{
 			foreach($sub_galleries as $gallery)
 			{
-				if(!$gallery['thumb'])
+				if(!isset($gallery['thumb']))
 				{
 					$gallery['thumb'] = "styles/{$page->style}/images/avatar_gallery.png";
 					$gallery['thumb_width'] = 64;

@@ -80,7 +80,7 @@ if($mybb->input['action'] == "add_gallery")
 	}
 
 	$form_container = new FormContainer($lang->add_gallery);
-	$form_container->output_row($lang->gallery_name."<em>*</em>", $lang->gallery_name_desc, $form->generate_text_box('name', $mybb->input['name'], array('id' => 'name')), 'name');
+	$form_container->output_row($lang->gallery_name."<em>*</em>", $lang->gallery_name_desc, $form->generate_text_box('name', $mybb->get_input('name'), array('id' => 'name')), 'name');
 	$form_container->end();
 
 	$buttons[] = $form->generate_submit_button($lang->save_gallery);
@@ -103,7 +103,7 @@ if($mybb->input['action'] == "edit_gallery")
 
 	if($mybb->request_method == "post")
 	{
-		$mybb->input['name'] = htmlspecialchars_uni($mybb->input['name']);
+		$mybb->input['name'] = htmlspecialchars_uni($mybb->get_input('name'));
 
 		if(!trim($mybb->input['name']))
 		{
@@ -578,6 +578,7 @@ if($mybb->input['action'] == "delete_avatar")
 	}
 }
 
+$mybb->input['gallery'] = $mybb->get_input('gallery');
 if($mybb->input['gallery'])
 {
 	$directory = htmlspecialchars_uni($mybb->get_input('gallery'));
