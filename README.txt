@@ -1,6 +1,6 @@
 ## INFORMATION ##
 
-Avatar Gallery (1.4) for MyBB 1.8
+Avatar Gallery (1.5) for MyBB 1.8
 Created by: Starpaul20
 Copyright: ©2014
 License: GPL
