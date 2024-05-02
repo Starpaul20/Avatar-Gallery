@@ -187,7 +187,7 @@ if($mybb->input['action'] == "delete_gallery")
 	}
 
 	// User clicked no
-	if($mybb->input['no'])
+	if($mybb->get_input('no'))
 	{
 		admin_redirect("index.php?module=user-avatar_gallery");
 	}
@@ -503,7 +503,7 @@ if($mybb->input['action'] == "edit_avatar")
 		}
 	}
 
-	$form_container->output_row($lang->gallery."<em>*</em>", $lang->gallery_desc, $form->generate_select_box('name', $gallery_list, $mybb->input['name'], array('id' => 'name')), 'name');
+	$form_container->output_row($lang->gallery."<em>*</em>", $lang->gallery_desc, $form->generate_select_box('name', $gallery_list, $mybb->get_input('name'), array('id' => 'name')), 'name');
 
 	$form_container->end();
 
@@ -534,7 +534,7 @@ if($mybb->input['action'] == "delete_avatar")
 	}
 
 	// User clicked no
-	if($mybb->input['no'])
+	if($mybb->get_input('no'))
 	{
 		admin_redirect("index.php?module=user-avatar_gallery");
 	}
